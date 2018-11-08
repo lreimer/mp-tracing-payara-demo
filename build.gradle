@@ -1,0 +1,21 @@
+plugins {
+    id 'war'
+    id 'io.franzbecker.gradle-lombok' version '1.14'
+}
+
+repositories { jcenter() }
+
+lombok {
+    version = '1.18.2'
+    sha256 = ""
+}
+
+dependencies {
+    providedCompile 'javax:javaee-api:8.0'
+
+    providedCompile 'org.eclipse.microprofile.opentracing:microprofile-opentracing-api:1.1'
+    providedCompile 'io.opentracing:opentracing-api:0.31.0'
+
+    compile 'io.jaegertracing:jaeger-core:0.31.0'
+    runtime 'org.slf4j:slf4j-jdk14:1.7.25'
+}
