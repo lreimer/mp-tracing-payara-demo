@@ -1,14 +1,9 @@
-# Video Instructions
+#  MicroProfile OpenTracing Demo with Payara Micro
 
-For each video, there is a Git branch with a matching name that acts as a
-starting point.
-
-## Video 5.5: Adding trace information using MicroProfile OpenTracing
-
-Tracing the requests in a microservice architecture as the 3rd corner stone of good
+Tracing the requests in a microservice architecture is one of the corner stones of good
 diagnosability to be able to see and analyse the request flow.
 
-### Step 1: Add the MicroProfile OpenTracing dependency
+## Step 1: Add the MicroProfile OpenTracing dependency
 
 First, we need to add the following dependencies to the `build.gradle` file.
 
@@ -17,7 +12,7 @@ First, we need to add the following dependencies to the `build.gradle` file.
     providedCompile 'io.opentracing:opentracing-api:0.31.0'
 ```
 
-### Step 2: Configure Payara request tracing
+## Step 2: Configure Payara request tracing
 
 Next we need to configure the request tracing feature of Payara using a post boot command file.
 Create a file called `post-boot.asadmin` and add the following content.
@@ -38,7 +33,7 @@ COPY post-boot.asadmin /opt/payara/
 COPY build/libs/tracing-service.war /opt/payara/deployments/
 ```
 
-### Step 3: Use MicroProfile OpenTracing with JAX-RS
+## Step 3: Use MicroProfile OpenTracing with JAX-RS
 
 To use MicroProfile OpenTracing we simply need to annotate any JAX-RS resource method with the `@Traced` annotation. 
 We can also use CDI to `@Inject` a `io.opentracing.Tracer` instance. Create the following class.
